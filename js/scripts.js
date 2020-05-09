@@ -6,8 +6,7 @@ inputs.forEach(input => {
 
 })
 
-function validateInput(e) {
-    
+function validateInput(e) { 
     // array of states
     const states = ['valid', 'not-valid'];
     let classes;
@@ -18,15 +17,30 @@ function validateInput(e) {
         classes = states[0];
     }
 
+    // remove previous class
+    e.target.nextElementSibling.classList.remove(...classes);
+    // add new class
+    e.target.nextElementSibling.classList.add(classes);
+
     // generate or remove the alert
     if (classes === 'not-valid') {
-        const errorDiv = document.createElement('div');
-        errorDiv.appendChild(document.createTextNode('This field is mandatory'));
-        errorDiv.classList.add('alert');
 
-        e.target.parentElement.parentElement.insertBefore(errorDiv, e.target.parentElement.nextElementSibling);
+        if (e.target.parentElement.nextElementSibling.classList[0] !== 'alert') {
+            // add alert if not exists
+            const errorDiv = document.createElement('div');
+            errorDiv.appendChild(document.createTextNode('This field is mandatory'));
+            errorDiv.classList.add('alert');
+            // inject the error inside the DOM
+            e.target.parentElement.parentElement.insertBefore(errorDiv, e.target.parentElement.nextElementSibling);
+        }
 
-    } 
+    } else {
+
+        if (e.target.parentElement.nextElementSibling.classList[0] === 'alert') {
+            // run when the alert exists
+            e.target.parentElement.nextElementSibling.remove();
+        }
+    }
   }
 
 

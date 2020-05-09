@@ -161,7 +161,7 @@ form .actions {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: .5rem 0;
-  margin-bottom: 8rem;
+  margin-bottom: 1rem;
 }
 
 form .actions a, form .actions label {
@@ -174,7 +174,7 @@ form .actions a, form .actions label {
 
 @media only screen and (min-width: 768px) {
   .bottom-content {
-    padding-top: 6rem;
+    padding-top: 8rem;
   }
 }
 
