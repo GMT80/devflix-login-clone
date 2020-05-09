@@ -81,7 +81,6 @@ form {
       right: 1rem;
       top: 1rem;
       text-transform: uppercase;
-
       &:hover {
         cursor: pointer;
       }
@@ -129,11 +128,18 @@ form {
     justify-content: space-between;
     padding: .5rem 0;
     margin-bottom: 8rem;
+
+    a, label {
+      font-size: .8rem;
+    }
   }
 }
 
 .bottom-content {
   padding-bottom: 2rem;
+  @include tablet {
+    padding-top: 6rem;
+  }
 
   a {
     font-size: .8rem;
@@ -148,5 +154,37 @@ form {
       margin-left: .5rem;
     }
   }
+}
 
+.site-footer {
+  border-top: 1px solid $gray2;
+  padding: 2rem 0 4rem 0;
+  @include tablet {
+    border-top: unset;
+    background-color: rgba(0, 0, 0, .75);
+    padding: 1rem 0 3rem 0;
+  }
+  .container {
+    max-width: 60%;
+  }
+
+  .menu-footer {
+    padding: .5rem 0 3rem 0;
+    display: flex;
+    justify-content: space-between;
+    @include tablet {
+      max-width: 50%;
+    }
+    a {
+      font-size: .8rem;
+    }
+  }
+  select {
+    background-color: $black;
+    border-color: $gray3;
+    color: $gray2;
+    appearance: none;
+    padding: 1rem 3rem;
+    font-size: .8rem;
+  }
 }
